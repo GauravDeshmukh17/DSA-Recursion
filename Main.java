@@ -52,7 +52,9 @@ public class Main{
 
 //---------------------------------------------------------------------------------------------------------------
 
-package com.company;
+// FACTORIAL
+
+/*package com.company;
 
 import java.util.*;
 
@@ -71,6 +73,35 @@ public class Main{
         int fact=factorial(n);
         System.out.println(fact);
     }
+}*/
+
+//---------------------------------------------------------------------------------------------------------------
+
+// DECREASING INCREASING
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static void decreasingIncreasing(int n){
+        if(n==0){
+            return;
+        }
+        System.out.println(n);
+        decreasingIncreasing(n-1);
+        System.out.println(n);
+    }
+
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        decreasingIncreasing(n);
+    }
 }
+
+//---------------------------------------------------------------------------------------------------------------
+
 
 
