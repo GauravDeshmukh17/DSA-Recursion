@@ -105,7 +105,7 @@ public class Main{
 
 // x raised to power of n
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -126,6 +126,37 @@ public class Main{
         System.out.println(pow);
     }
 
-}
+}*/
 
+//---------------------------------------------------------------------------------------------------------------
+
+// x raised to power n (less time complexity)
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int power(int x,int n){
+        if(n==0){
+            return 1;
+        }
+        int pow=power(x,n/2);
+
+        int ans=pow*pow;
+        if(n%2!=0){
+            ans=ans*x;
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        int x=scn.nextInt();
+        int n=scn.nextInt();
+        System.out.println(power(x,n));
+    }
+
+}
 
