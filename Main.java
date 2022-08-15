@@ -132,7 +132,7 @@ public class Main{
 
 // x raised to power n (less time complexity)
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -156,6 +156,35 @@ public class Main{
         int x=scn.nextInt();
         int n=scn.nextInt();
         System.out.println(power(x,n));
+    }
+
+}*/
+
+//---------------------------------------------------------------------------------------------------------------
+
+// PRINT ZIG-ZAG
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static void pzz(int n){
+        if(n==0){
+            return;
+        }
+        System.out.print(n+" ");
+        pzz(n-1);
+        System.out.print(n+" ");
+        pzz(n-1);
+        System.out.print(n+" ");
+    }
+
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        pzz(n);
     }
 
 }
