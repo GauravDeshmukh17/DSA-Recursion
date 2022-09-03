@@ -224,7 +224,7 @@ public class Main{
 
 // REVERSE ARRAY USING RECURSION
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -247,8 +247,38 @@ public class Main{
         }
         reverseArray(arr,0);
     }
-}
+}*/
 
 //---------------------------------------------------------------------------------------------------------------
 
+// MAXIMUM OF ARRAY
 
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int maxOfArray(int[] arr,int idx,int max){
+        if(idx==arr.length){
+            return max;
+        }
+
+        if(arr[idx]>max){
+            max=arr[idx];
+        }
+
+        int ans=maxOfArray(arr,idx+1,max);
+        return ans;
+    }
+
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scn.nextInt();
+        }
+        System.out.println(maxOfArray(arr,1,arr[0]));
+    }
+}

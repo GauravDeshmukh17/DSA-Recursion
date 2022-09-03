@@ -53,7 +53,7 @@ public class Revision{
 
 // x power n -> with less time complexity
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -83,7 +83,9 @@ public class Revision{
         int pow=power(x,n);
         System.out.println(pow);
     }
-}
+}*/
+
+//-----------------------------------------------------------------------------------------------------------
 
 
 
