@@ -352,7 +352,7 @@ public class Main{
 
 // FIRST INDEX
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -382,6 +382,45 @@ public class Main{
         int fi=firstIndex(arr,x,0);
         System.out.print(fi);
     }
+}*/
+
+//------------------------------------------------------------------------------------------------------------
+
+// LAST INDEX
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int lastIndex(int arr[],int x,int idx){
+
+        if(idx==-1) return -1;
+
+        if(arr[idx]==x) return idx;
+
+        int ans=lastIndex(arr,x,idx-1);
+
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scn.nextInt();
+        }
+        int x=scn.nextInt();
+
+        int li=lastIndex(arr,x,n-1);
+        System.out.print(li);
+    }
 }
+
+
+
 
 
