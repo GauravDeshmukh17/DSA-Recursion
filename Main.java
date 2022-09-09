@@ -319,7 +319,7 @@ public class Main{
 
 // TOWER OF HANOI
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -346,7 +346,42 @@ public class Main{
 
         toh(n,t1,t2,t3);
     }
-}
+}*/
 
+//------------------------------------------------------------------------------------------------------------
+
+// FIRST INDEX
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int firstIndex(int arr[],int x,int idx){
+
+        if(idx== arr.length) return -1;
+
+        if(arr[idx]==x) return idx;
+
+        int ans=firstIndex(arr,x,idx+1);
+
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scn.nextInt();
+        }
+        int x=scn.nextInt();
+
+        int fi=firstIndex(arr,x,0);
+        System.out.print(fi);
+    }
+}
 
 
