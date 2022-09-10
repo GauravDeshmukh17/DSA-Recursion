@@ -388,7 +388,7 @@ public class Main{
 
 // LAST INDEX
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -418,7 +418,52 @@ public class Main{
         int li=lastIndex(arr,x,n-1);
         System.out.print(li);
     }
+}*/
+
+//--------------------------------------------------------------------------------------------------------------
+
+// LAST INDEX (METHOD 2)
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main{
+
+    public static int lastIndex(int arr[],int x,int idx){
+        if(arr.length==idx){
+            return -1;
+        }
+
+        int f1=lastIndex(arr,x,idx+1);
+
+        if(f1==-1){
+            if(arr[idx]==x){
+                return idx;
+            }
+            else{
+                return -1;
+            }
+        }
+        else{
+            return f1;
+        }
+
+    }
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]= scn.nextInt();
+        }
+        int x=scn.nextInt();
+        int li=lastIndex(arr,x,0);
+        System.out.print(li);
+    }
 }
+
 
 
 
