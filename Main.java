@@ -424,7 +424,7 @@ public class Main{
 
 // LAST INDEX (METHOD 2)
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -462,7 +462,53 @@ public class Main{
         int li=lastIndex(arr,x,0);
         System.out.print(li);
     }
+}*/
+
+//--------------------------------------------------------------------------------------------------------------
+
+// ANY INDEX
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static int[] anyIndex(int arr[],int x,int idx,int size){
+        if(arr.length==idx){
+            int[] outputArr=new int[size];
+            return outputArr;
+        }
+
+        if(arr[idx]==x){
+            size=size+1;
+        }
+
+        int ans[]=anyIndex(arr,x,idx+1,size);
+
+        if(arr[idx]==x){
+            ans[size-1]=idx;
+        }
+
+        return ans;
+    }
+
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<arr.length;i++){
+            arr[i]=scn.nextInt();
+        }
+        int x=scn.nextInt();
+
+        int ai[]=anyIndex(arr,x,0,0);
+        for(int i=0;i<ai.length;i++){
+            System.out.print(ai[i]+" ");
+        }
+    }
 }
+
 
 
 
