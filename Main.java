@@ -468,7 +468,7 @@ public class Main{
 
 // ANY INDEX
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -507,9 +507,50 @@ public class Main {
             System.out.print(ai[i]+" ");
         }
     }
+}*/
+
+//-------------------------------------------------------------------------------------------------------------
+
+// SUB-SEQUENCE OF STRING
+
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main{
+
+    public static ArrayList<String> subSequence(String str){
+
+        if(str.length()==0){
+            ArrayList<String> base=new ArrayList<>();
+            base.add("");
+            return base;
+        }
+
+        char ch=str.charAt(0);
+        String ros=str.substring(1);
+
+        ArrayList<String> listStore=subSequence(ros);
+
+        int length=listStore.size();
+
+        // adding
+        for(int i=0;i<length;i++){
+            listStore.add(ch+listStore.get(i));
+        }
+
+        return listStore;
+    }
+
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        String str=scn.next();
+
+        ArrayList<String> subseq=subSequence(str);
+        System.out.println(subseq);
+    }
 }
-
-
 
 
 
