@@ -1,4 +1,4 @@
-// x power n
+ // x power n
 
 /*package com.company;
 

@@ -513,7 +513,7 @@ public class Main {
 
 // SUB-SEQUENCE OF STRING
 
-package com.company;
+/*package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -549,6 +549,51 @@ public class Main{
 
         ArrayList<String> subseq=subSequence(str);
         System.out.println(subseq);
+    }
+}*/
+
+//-------------------------------------------------------------------------------------------------------------
+
+// MAZE PATH
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static ArrayList<String> mazePath(int row , int col){
+
+        if(row==0 || col==0){
+            ArrayList<String> base=new ArrayList<String>();
+            return base;
+        }
+        if(row==1 && col==1){
+            ArrayList<String> base=new ArrayList<String>();
+            base.add("");
+            return base;
+        }
+
+        ArrayList<String> list1=mazePath(row,col-1);
+        ArrayList<String> list2=mazePath(row-1,col);
+
+        ArrayList<String> ans=new ArrayList<String>();
+        for(int i=0;i<list1.size();i++){
+            ans.add(list1.get(i)+"h");
+        }
+        for(int i=0;i<list2.size();i++){
+            ans.add(list2.get(i)+"v");
+        }
+
+        return ans;
+    }
+
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        int m=scn.nextInt();
+        int n= scn.nextInt();
+        ArrayList<String> mp=mazePath(m,n);
+        System.out.println(mp);
     }
 }
 
