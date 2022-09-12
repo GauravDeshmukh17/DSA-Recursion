@@ -556,7 +556,7 @@ public class Main{
 
 // MAZE PATH
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -595,7 +595,64 @@ public class Main{
         ArrayList<String> mp=mazePath(m,n);
         System.out.println(mp);
     }
+}*/
+
+//--------------------------------------------------------------------------------------------------------
+
+// STAIRS POSSIBLE WAYS
+// PRINT STEP NUMBER AS ANSWER
+
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main{
+
+    public static ArrayList<String> stairs(int n){
+        if(n==0){
+            ArrayList<String> base=new ArrayList<String>();
+//            String val=Integer.toString(n);
+//            base.add(val);
+            base.add("0");
+            return base;
+        }
+        if(n<0){
+            ArrayList<String> base=new ArrayList<String>();
+            return base;
+        }
+
+        ArrayList<String> list1=stairs(n-1);
+        ArrayList<String> list2=stairs(n-2);
+        ArrayList<String> list3=stairs(n-3);
+
+        ArrayList<String> ans=new ArrayList<String>();
+        for(int i=0;i<list1.size();i++){
+            String val=Integer.toString(n);
+            ans.add(list1.get(i)+val);
+        }
+        for(int i=0;i<list2.size();i++){
+            String val=Integer.toString(n);
+            ans.add(list2.get(i)+val);
+        }
+        for(int i=0;i<list3.size();i++){
+            String val=Integer.toString(n);
+            ans.add(list3.get(i)+val);
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+
+        ArrayList<String> li=stairs(n);
+        System.out.println(li);
+    }
 }
+
+//----------------------------------------------------------------------------------------------------------
+
 
 
 
