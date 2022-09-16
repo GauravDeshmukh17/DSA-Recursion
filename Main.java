@@ -602,7 +602,7 @@ public class Main{
 // STAIRS POSSIBLE WAYS
 // PRINT STEP NUMBER AS ANSWER
 
-package com.company;
+/*package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -649,11 +649,55 @@ public class Main{
         ArrayList<String> li=stairs(n);
         System.out.println(li);
     }
-}
+}*/
 
 //----------------------------------------------------------------------------------------------------------
 
+// GET KPC
 
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static ArrayList<String> getKPC(String[] arr, String str){
+        if(str.length()==0){
+            ArrayList<String> base=new ArrayList<String>();
+            base.add("");
+            return base;
+        }
+
+        char ch=str.charAt(0);
+        String ros=str.substring(1);
+
+        ArrayList<String> list=getKPC(arr,ros);
+
+        int val=Character.getNumericValue(ch);
+        String store=String.valueOf(arr[val]);
+
+        ArrayList<String> ans=new ArrayList<String>();
+        for(int i=0;i<store.length();i++){
+            for(int j=0;j< list.size();j++){
+                ans.add(store.charAt(i)+list.get(j));
+            }
+        }
+        return ans;
+    }
+
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        String str=scn.next();
+        String[] arr={".;","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+
+        ArrayList<String> kpc=getKPC(arr,str);
+//        System.out.print(kpc);
+        for(int i=0;i< kpc.size();i++){
+            System.out.println(kpc.get(i));
+        }
+
+    }
+}
 
 
 
