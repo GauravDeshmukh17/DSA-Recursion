@@ -704,7 +704,7 @@ public class Main{
 // RECURSION ON THE WAY
 // PRINT SUB-STRINGS
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -735,5 +735,40 @@ public class Main{
 
         printSS(str,"");
     }
+}*/
+
+//-----------------------------------------------------------------------------------------------------------
+
+// RECURSION ON THE WAY
+// MAZE PATH
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Main{
+
+    public static void mazePath(int row,int col,int dr,int dc,String asf){
+        if(row==dr || col==dc){
+            return;
+        }
+
+        if(row==dr-1 && col==dc-1){
+            System.out.println(asf);
+        }
+
+        mazePath(row,col+1,dr,dc,asf+"h");
+
+        mazePath(row+1,col,dr,dc,asf+"v");
+    }
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        int row=scn.nextInt();
+        int col= scn.nextInt();;
+
+        mazePath(0,0,row,col,"");
+    }
 }
+
 
