@@ -742,7 +742,7 @@ public class Main{
 // RECURSION ON THE WAY
 // MAZE PATH
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -769,6 +769,67 @@ public class Main{
 
         mazePath(0,0,row,col,"");
     }
-}
+}*/
 
+//-----------------------------------------------------------------------------------------------------------
+
+// MINIMUM PATH IN 2D ARRAY
+
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main{
+
+    public static ArrayList<Integer> minimumPath(int arr[][],int row,int col){
+        if(row<0 || col<0){
+            ArrayList<Integer> base=new ArrayList<Integer>();
+            return base;
+        }
+
+        if(row==0 && col==0){
+            ArrayList<Integer> base=new ArrayList<Integer>();
+            base.add(arr[0][0]);
+            return base;
+        }
+
+        ArrayList<Integer> list1=minimumPath(arr,row,col-1);
+        ArrayList<Integer> list2=minimumPath(arr,row-1,col);
+
+        ArrayList<Integer> ans=new ArrayList<Integer>();
+        for(int i=0;i<list1.size();i++){
+            ans.add(list1.get(i)+arr[row][col]);
+        }
+        for(int i=0;i<list2.size();i++){
+            ans.add(list2.get(i)+arr[row][col]);
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        int row=scn.nextInt();
+        int col=scn.nextInt();
+        int[][] arr=new int[row][col];
+
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                arr[i][j]=scn.nextInt();
+            }
+        }
+
+        ArrayList<Integer> list=minimumPath(arr,row-1,col-1);
+        System.out.println(list);
+        int min=list.get(0);
+        for(int i=0;i< list.size();i++){
+            if(list.get(i)<min){
+                min=list.get(i);
+            }
+        }
+        System.out.println(min);
+    }
+
+}
 
