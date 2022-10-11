@@ -775,7 +775,7 @@ public class Main{
 
 // MINIMUM PATH IN 2D ARRAY
 
-package com.company;
+/*package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -831,5 +831,104 @@ public class Main{
         System.out.println(min);
     }
 
-}
+}*/
 
+//----------------------------------------------------------------------------------------------------------
+
+/*package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static ArrayList<Integer> reverse(ArrayList arr,int start,int end){
+
+        int i=start;
+        int val=(start+end)/2;
+        while(i<val){
+
+            ArrayList<Integer> base=new ArrayList<>();
+            base.add(0,(Integer) arr.get(i));
+            arr.set(i,arr.get(end));
+            arr.set(end,base.get(0));
+        }
+
+        return arr;
+    }
+
+    public static void main(String args[]){
+        ArrayList<Integer> arr=new ArrayList<>();
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        for(int i=0;i<n;i++){
+
+            int j=scn.nextInt();
+            arr.add(i,j);
+        }
+
+        int m=scn.nextInt();
+        ArrayList<ArrayList<Integer>> oprations = new ArrayList<>();
+       for(int i=0;i<m;i++){
+           for(int j=0;j<2;j++){
+               int element=scn.nextInt();
+               oprations.add(new ArrayList<Integer>(Arrays.asList(element)));
+           }
+       }
+
+        for(int i=0;i<m;i++){
+            arr=reverse(arr,oprations.get(i).get(0),oprations.get(i).get(1));
+        }
+        System.out.println(arr);
+    }
+
+}*/
+
+//----------------------------------------------------------------------------------------------
+
+// amazon (reverse in given range index)
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int[] reverse(int[] arr,int start,int end){
+        int i=start;
+        int val=(start+end)/2;
+        int j=0;
+        while(i<=val){
+            int temp=arr[i];
+            arr[i]=arr[end-j];
+            arr[end-j]=temp;
+            i++;
+            j++;
+        }
+        return arr;
+    }
+    public static void main(String args[]){
+        Scanner scn=new Scanner(System.in);
+        int n= scn.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scn.nextInt();
+        }
+
+        int m= scn.nextInt();
+        int[][] operations=new int[m][2];
+        for(int i=0;i<m;i++){
+            for(int j=0;j<2;j++){
+                operations[i][j]=scn.nextInt();
+            }
+        }
+
+        for(int i=0;i<6;i++){
+            arr=reverse(arr,operations[i][0],operations[i][1]);
+            for(int j=0;j<n;j++){
+                    System.out.print(arr[j]+" ");
+                }
+            System.out.println();
+            }
+        }
+
+}
