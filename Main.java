@@ -887,7 +887,7 @@ public class Main{
 
 // amazon (reverse in given range index)
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -931,4 +931,53 @@ public class Main{
             }
         }
 
+}*/
+
+//-----------------------------------------------------------------------------------------------
+
+// REDUCE ARRAY
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static int reduceArray(int arr[],int k,int count){
+
+        if(k==0){
+            return count;
+        }
+
+        int store=0;
+        int max=arr[0];
+        for(int i=0;i<k;i++){
+            if(arr[i]>max){
+                max=arr[i];
+                store=i;
+            }
+        }
+
+        return reduceArray(arr,store,count+1);
+//        int ans=reduceArray(arr,store,count+1);
+//
+//        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int[] arr=new int[n];
+
+        for(int i=0;i<n;i++){
+            arr[i]=scn.nextInt();
+        }
+
+        int ra=reduceArray(arr,n,0);
+        System.out.println(ra);
+    }
+
 }
+
+
