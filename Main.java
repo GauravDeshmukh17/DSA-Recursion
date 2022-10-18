@@ -982,7 +982,7 @@ public class Main{
 
 //-----------------------------------------------------------------------------------------------------------------
 
-/*package com.company;
+package com.company;
 
 import java.util.*;
 
@@ -996,6 +996,7 @@ public class Main{
             return base;
         }
 
+        ArrayList<String> ans=new ArrayList<String>();
         for(int i=0;i<str.length();i++){
 
             char ch=str.charAt(i);
@@ -1003,14 +1004,13 @@ public class Main{
 
             ArrayList<String> list=permutations(ros);
 
-            ArrayList<String> ans=new ArrayList<String>();
             for(int j=0;j<list.size();j++){
                 ans.add(list.get(j)+ch);
             }
 
-            return ans;
         }
 
+        return ans;
     }
 
     public static void main(String args[]){
@@ -1018,19 +1018,16 @@ public class Main{
         Scanner scn=new Scanner(System.in);
         String str=scn.next();
 
-        System.out.println(permutations(str));
-
+        System.out.println(permutations(str)+"");
     }
 
-}*/
-
-// error in program
+}
 
 //-----------------------------------------------------------------------------------------------------------------
 
 // PRINTING OF GOOD STRINGS
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -1074,7 +1071,10 @@ public class Main{
         long gsn=gs.size();
         System.out.println("Total Good Strings : "+gsn);
     }
-}
+}*/
+
+//-----------------------------------------------------------------------------------------------------------------
+
 
 
 
