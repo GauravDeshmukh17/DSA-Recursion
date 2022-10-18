@@ -982,7 +982,9 @@ public class Main{
 
 //-----------------------------------------------------------------------------------------------------------------
 
-package com.company;
+// PERMUTATIONS OF STRING
+
+/*package com.company;
 
 import java.util.*;
 
@@ -1021,7 +1023,7 @@ public class Main{
         System.out.println(permutations(str)+"");
     }
 
-}
+}*/
 
 //-----------------------------------------------------------------------------------------------------------------
 
@@ -1075,6 +1077,36 @@ public class Main{
 
 //-----------------------------------------------------------------------------------------------------------------
 
+// PERMUTATIONS OF STRING (RECURSION ON THE WAY)
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static void permutations(String str,String asf){
+
+        if(str.length()==0){
+            System.out.println(asf);
+        }
+
+        for(int i=0;i<str.length();i++){
+
+            char ch=str.charAt(i);
+            String ros=str.substring(0,i)+str.substring(i+1);
+
+            permutations(ros,asf+ch);
+        }
+    }
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        String str=scn.next();
+
+        permutations(str,"");
+    }
+}
 
 
 
