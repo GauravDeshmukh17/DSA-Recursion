@@ -1079,7 +1079,7 @@ public class Main{
 
 // PERMUTATIONS OF STRING (RECURSION ON THE WAY)
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -1106,7 +1106,67 @@ public class Main{
 
         permutations(str,"");
     }
-}
+}*/
+
+//-----------------------------------------------------------------------------------------------------------------
+
+// ENCODING
+
+/*package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static ArrayList<String> encoding(String str,String inputStr){
+
+        if(str.length()==0){
+            ArrayList<String> base=new ArrayList<>();
+            base.add("");
+            return base;
+        }
+
+        ArrayList<String> ans=new ArrayList<>();
+        int n=0;
+        if(str.length()>1){
+            if(Integer.parseInt(str.substring(0,2))<27){
+                n=2;
+            }
+            else{
+                n=1;
+            }
+        }
+        else{
+            n=1;
+        }
+
+        for(int i=0;i<n;i++){
+            String str2=str.substring(0,i+1);
+            String ros=str.substring(i+1);
+
+            ArrayList<String> list=encoding(ros,inputStr);
+
+            int idx=Integer.parseInt(str2);
+            for(int j=0;j<list.size();j++){
+                ans.add(inputStr.charAt(idx)+list.get(j));
+            }
+        }
+
+        return ans;
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        String str=scn.next();
+        String inputStr=" abcdefghijklmnopqrstuvwxyz";
+
+        ArrayList<String> en=encoding(str,inputStr);
+        System.out.println(en);
+    }
+}*/
+
+//---------------------------------------------------------------------------------------------------------------
 
 
 
