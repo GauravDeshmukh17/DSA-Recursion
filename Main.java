@@ -1112,7 +1112,7 @@ public class Main{
 
 // ENCODING
 
-/*package com.company;
+package com.company;
 
 import java.util.*;
 
@@ -1123,6 +1123,10 @@ public class Main{
         if(str.length()==0){
             ArrayList<String> base=new ArrayList<>();
             base.add("");
+            return base;
+        }
+        if(str.charAt(0)=='0'){
+            ArrayList<String> base=new ArrayList<>();
             return base;
         }
 
@@ -1164,13 +1168,13 @@ public class Main{
         ArrayList<String> en=encoding(str,inputStr);
         System.out.println(en);
     }
-}*/
+}
 
 //---------------------------------------------------------------------------------------------------------------
 
 // ENCODING (RECURSION ON THE WAY)
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -1180,6 +1184,9 @@ public class Main{
 
         if(str.length()==0){
             System.out.println(asf);
+            return;
+        }
+        if(str.charAt(0)=='0'){
             return;
         }
 
@@ -1213,7 +1220,7 @@ public class Main{
 
         encoding(str,inputStr,"");
     }
-}
+}*/
 
 
 
