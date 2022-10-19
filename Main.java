@@ -1168,6 +1168,53 @@ public class Main{
 
 //---------------------------------------------------------------------------------------------------------------
 
+// ENCODING (RECURSION ON THE WAY)
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static void encoding(String str,String inputStr,String asf){
+
+        if(str.length()==0){
+            System.out.println(asf);
+            return;
+        }
+
+        int n=0;
+        if(str.length()>1){
+            if(Integer.parseInt(str.substring(0,2))<27){
+                n=2;
+            }
+            else{
+                n=1;
+            }
+        }
+        else{
+            n=1;
+        }
+
+        for(int i=0;i<n;i++){
+            String str2=str.substring(0,i+1);
+            String ros=str.substring(i+1);
+            int idx=Integer.parseInt(str2);
+
+            encoding(ros,inputStr,asf+inputStr.charAt(idx));
+        }
+    }
+
+    public static void main(String args[]){
+
+        Scanner scn=new Scanner(System.in);
+        String str=scn.next();
+        String inputStr=" abcdefghijklmnopqrstuvwxyz";
+
+        encoding(str,inputStr,"");
+    }
+}
+
 
 
 
