@@ -1245,14 +1245,6 @@ public class Main{
             return base;
         }
 
-//        for(int i=0;i<maze.length;i++){
-//            for(int j=0;j<maze[0].length;j++){
-//                if(check[sr][sc]==true){
-//                    ArrayList<String> base=new ArrayList<>();
-//                    return base;
-//                }
-//            }
-//        }
         check[sr][sc]=true;
 
         ArrayList<String> list1=floodfill(maze,sr-1,sc,check);  // top
