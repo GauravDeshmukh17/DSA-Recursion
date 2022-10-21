@@ -1225,9 +1225,10 @@ public class Main{
 
 //--------------------------------------------------------------------------------------------------------------
 
-// FLOOD FILL
+// RECURSION AND BACKTRACKING
+// FLOOD FILL (ALL POSSIBLE PATHS)
 
-package com.company;
+/*package com.company;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -1283,7 +1284,75 @@ public class Main{
             System.out.println(ff.get(i));
         }
     }
-}
+}*/
 
+//--------------------------------------------------------------------------------------------------------------
+
+// RECURSION AND BACKTRACKING
+// FLOOD FILL (WITH OBSTACLE)
+
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main{
+
+    public static ArrayList<String> floodfill(int[][] maze,int sr,int sc,boolean[][] check){
+        if(sr==maze.length-1 && sc==maze[0].length-1){
+            ArrayList<String> base=new ArrayList<>();
+            base.add("");
+            return base;
+        }
+        if(sr<0 || sc<0 || sr==maze.length || sc==maze[0].length || maze[sr][sc]==1 ||check[sr][sc]==true){
+            ArrayList<String> base=new ArrayList<>();
+            return base;
+        }
+
+        check[sr][sc]=true;
+
+        ArrayList<String> list1=floodfill(maze,sr-1,sc,check);  // top
+        ArrayList<String> list2=floodfill(maze,sr,sc-1,check);  // left
+        ArrayList<String> list3=floodfill(maze,sr+1,sc,check);  // down
+        ArrayList<String> list4=floodfill(maze,sr,sc+1,check);  // right
+
+        check[sr][sc]=false;
+        ArrayList<String> ans=new ArrayList<>();
+        for(int i=0;i<list1.size();i++){
+            ans.add('t'+list1.get(i));
+        }
+        for(int i=0;i<list2.size();i++){
+            ans.add('l'+list2.get(i));
+        }
+        for(int i=0;i<list3.size();i++){
+            ans.add('d'+list3.get(i));
+        }
+        for(int i=0;i<list4.size();i++){
+            ans.add('r'+list4.get(i));
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        int m=scn.nextInt();
+        int n=scn.nextInt();
+        int[][] maze=new int[m][n];
+        boolean[][] check=new boolean[m][n];
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                maze[i][j]=scn.nextInt();
+            }
+        }
+
+        ArrayList<String> ff=floodfill(maze,0,0,check);
+//        System.out.println(ff);
+        for(int i=0;i< ff.size();i++){
+            System.out.println(ff.get(i));
+        }
+    }
+
+}
 
 
