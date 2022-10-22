@@ -1359,7 +1359,7 @@ public class Main{
 
 // BUBBLE SORT
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -1393,6 +1393,112 @@ public class Main{
             System.out.print(bs[i]+" ");
         }
     }
+}*/
+
+//-----------------------------------------------------------------------------------------------------------
+
+package com.company;
+
+import java.util.*;
+
+public class Main{
+
+    public static ArrayList<String> nQueens(int[][] chess,int row,int col,boolean[][] visited){
+
+        if(row==chess.length && col==0){
+            ArrayList<String> base =new ArrayList<>();
+            base.add("");
+            return base;
+        }
+
+        if(row==chess.length && col>0){
+            ArrayList<String> base =new ArrayList<>();
+            return base;
+        }
+
+        if(row>=0 && visited[row][col]==true){
+            ArrayList<String> base =new ArrayList<>();
+            return base;
+        }
+
+        if(row>=0){
+            for(int i=row+1;i<chess.length;i++){
+                visited[i][col]=true;
+            }
+
+            int i=col-1;
+            int k=row+1;
+            while(k<chess.length && i>=0){
+                visited[k][i]=true;
+                k++;
+                i--;
+            }
+
+            i=col+1;
+            k=row+1;
+            while(k<chess.length && i<chess.length){
+                visited[k][i]=true;
+                k++;
+                i++;
+            }
+        }
+
+        ArrayList<String> ans=new ArrayList<>();
+        for(int i=0;i<chess.length;i++){
+
+            ArrayList<String> list=nQueens(chess,row+1,i,visited);
+
+//            if(row==-1 && list.size()>0){
+//                ans.add(list.get(0));
+//            }
+            if(list.size()>0){
+
+                String s1=Integer.toString(row);
+                String s2=Integer.toString(col);
+
+                ans.add(s1+"-"+s2+"  "+list.get(list.size()-1));
+            }
+        }
+
+        if(row>=0){
+            for(int i=row+1;i<chess.length;i++){
+                visited[i][col]=false;
+            }
+
+            int i=col-1;
+            int k=row+1;
+            while(k<chess.length && i>=0){
+                visited[k][i]=false;
+                k++;
+                i--;
+            }
+
+            i=col+1;
+
+            k=row+1;
+            while(k<chess.length && i<chess.length){
+                visited[k][i]=false;
+                k++;
+                i++;
+            }
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int[][] chess=new int[n][n];
+        boolean[][] visited=new boolean[n][n];
+
+        ArrayList<String> nq=nQueens(chess,-1,0,visited);
+//        System.out.println(nq);
+        for(int i=0;i<nq.size();i++){
+            System.out.println(nq.get(i));
+        }
+    }
 }
+
 
 
