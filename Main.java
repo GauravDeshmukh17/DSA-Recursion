@@ -1481,111 +1481,22 @@ public class Main{
 
 //-----------------------------------------------------------------------------------------------------------
 
+// SUDOKU
+
 import java.util.*;
 
 public class Main{
 
-    public static ArrayList<String> sudoku(int arr[][],int row,int col){
+    public static void sudoku(int arr[][],int row,int col){
 
         if(row==9 && col==8){
-            ArrayList<String> base=new ArrayList<>();
-            base.add("");
-            return base;
-        }
-        if(row==9){
-            row=0;
-            col=col+1;
-        }
-
-        ArrayList<String> ans=new ArrayList<>();
-        if(arr[row][col]!=0){
-            ArrayList<String> list=sudoku(arr,row+1,col);
-            String s1=Integer.toString(arr[row][col]);
-            if(list.size()>0){
-                ans.add(s1+list.get(0));
-            }
-        }
-        else{
-            for(int digit=1;digit<=9;digit++){
-                if(isSafe(arr,row,col,digit)==true){
-
-                    ArrayList<String> list=sudoku(arr,row+1,col);
-
-                    String s1=Integer.toString(digit);
-                    if(list.size()>0){
-                        ans.add(s1+list.get(0));
-                    }
+            for(int i=0;i<9;i++){
+                for(int j=0;j<9;j++){
+                    System.out.print(arr[i][j]+" ");
                 }
+                System.out.println();
             }
-        }
 
-        return ans;
-    }
-
-
-    public static boolean isSafe(int[][] arr,int row,int col,int digit){
-        // down
-        for(int i=row+1;i<arr.length;i++){
-            if(arr[i][col]==digit){
-                return false;
-            }
-        }
-        // left
-        for(int i=col+1;i< arr.length;i++){
-            if(arr[row][i]==digit){
-                return false;
-            }
-        }
-        // right
-        for(int i=0;i<col;i++){
-            if(arr[row][i]==digit){
-                return false;
-            }
-        }
-        // up
-        for(int i=row-1;i>=0;i--){
-            if(arr[i][col]==digit){
-                return false;
-            }
-        }
-        // all
-        int val1=row/3;
-        int val2=col/3;
-        for(int i=val1*3;i<=(val1*3)+2;i++){
-            for(int j=val2*3;j<=(val2*3)+2;j++){
-                if(arr[i][j]==digit){
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
-    public static void main(String[] args){
-        int arr[][]={ {3, 0, 6, 5, 0, 8, 4, 0, 0},
-                {5, 2, 0, 0, 0, 0, 0, 0, 0},
-                {0, 8, 7, 0, 0, 0, 0, 3, 1},
-                {0, 0, 3, 0, 1, 0, 0, 8, 0},
-                {9, 0, 0, 8, 6, 3, 0, 0, 5},
-                {0, 5, 0, 0, 9, 0, 6, 0, 0},
-                {1, 3, 0, 0, 0, 0, 2, 5, 0},
-                {0, 0, 0, 0, 0, 0, 0, 7, 4},
-                {0, 0, 5, 2, 0, 6, 3, 0, 0} };
-
-        ArrayList<String> sdk=sudoku(arr,0,0);
-        System.out.println(sdk);
-    }
-}
-
-/*import java.util.*;
-
-public class Main{
-
-    public static void sudoku(int arr[][],int row,int col,String asf){
-
-        if(row==9 && col==8){
-            System.out.println(asf);
             return;
         }
         if(row==9){
@@ -1594,16 +1505,19 @@ public class Main{
         }
 
         if(arr[row][col]!=0){
-            sudoku(arr,row+1,col,asf+arr[row][col]);
+            sudoku(arr,row+1,col);
         }
         else{
             for(int digit=1;digit<=9;digit++){
                 if(isSafe(arr,row,col,digit)==true){
-                    sudoku(arr,row+1,col,asf+digit);
+                    arr[row][col]=digit;
+                    sudoku(arr,row+1,col);
+                    arr[row][col]=0;
                 }
             }
         }
 
+        return;
     }
 
     public static boolean isSafe(int[][] arr,int row,int col,int digit){
@@ -1647,19 +1561,26 @@ public class Main{
 
     public static void main(String[] args){
         Scanner scn=new Scanner(System.in);
-        int arr[][]={ {3, 0, 6, 5, 0, 8, 4, 0, 0},
-                    {5, 2, 0, 0, 0, 0, 0, 0, 0},
-                    {0, 8, 7, 0, 0, 0, 0, 3, 1},
-                    {0, 0, 3, 0, 1, 0, 0, 8, 0},
-                    {9, 0, 0, 8, 6, 3, 0, 0, 5},
-                    {0, 5, 0, 0, 9, 0, 6, 0, 0},
-                    {1, 3, 0, 0, 0, 0, 2, 5, 0},
-                    {0, 0, 0, 0, 0, 0, 0, 7, 4},
-                    {0, 0, 5, 2, 0, 6, 3, 0, 0} };
+//        int arr[][]={ {3, 0, 6, 5, 0, 8, 4, 0, 0},
+//                    {5, 2, 0, 0, 0, 0, 0, 0, 0},
+//                    {0, 8, 7, 0, 0, 0, 0, 3, 1},
+//                    {0, 0, 3, 0, 1, 0, 0, 8, 0},
+//                    {9, 0, 0, 8, 6, 3, 0, 0, 5},
+//                    {0, 5, 0, 0, 9, 0, 6, 0, 0},
+//                    {1, 3, 0, 0, 0, 0, 2, 5, 0},
+//                    {0, 0, 0, 0, 0, 0, 0, 7, 4},
+//                    {0, 0, 5, 2, 0, 6, 3, 0, 0} };
 
-        sudoku(arr,0,0,"");
+        int[][] arr=new int[9][9];
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                arr[i][j]=scn.nextInt();
+            }
+        }
+
+        sudoku(arr,0,0);
     }
-}*/
+}
 
 
 
