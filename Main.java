@@ -1357,46 +1357,6 @@ public class Main{
 
 //-----------------------------------------------------------------------------------------------------------
 
-// BUBBLE SORT
-
-/*package com.company;
-
-import java.util.*;
-
-public class Main{
-
-    public static int[] bubbleSort(int[] arr){
-
-        for(int i=0;i<arr.length-1;i++){
-            for(int j=0;j<arr.length-1-i;j++){
-                if(arr[j]>arr[j+1]){
-                    int temp=arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=temp;
-                }
-            }
-        }
-
-        return arr;
-    }
-
-    public static void main(String[] args){
-        Scanner scn=new Scanner(System.in);
-        int n=scn.nextInt();
-        int[] arr= new int[n];
-        for(int i=0;i<n;i++){
-            arr[i]=scn.nextInt();
-        }
-
-        int[] bs=bubbleSort(arr);
-        for(int i=0;i<bs.length;i++){
-            System.out.print(bs[i]+" ");
-        }
-    }
-}*/
-
-//-----------------------------------------------------------------------------------------------------------
-
 // N QUEENS
 
 /*package com.company;
@@ -1483,7 +1443,7 @@ public class Main{
 
 // SUDOKU
 
-import java.util.*;
+/*import java.util.*;
 
 public class Main{
 
@@ -1594,8 +1554,42 @@ public class Main{
 
         sudoku(arr,0,0);
     }
-}
+}*/
 
+//-----------------------------------------------------------------------------------------------------------
+
+// TARGET SUM
+
+import java.util.*;
+
+public class Main{
+
+    public static void targetSum(int[] arr,int size,int sum,String str,int target){
+        if(size==arr.length){
+            if(sum==target){
+                System.out.println(str);
+            }
+            return;
+        }
+
+        targetSum(arr,size+1,sum+arr[size],str+arr[size]+" ",target);
+        targetSum(arr,size+1,sum,str,target);
+
+        return;
+    }
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scn.nextInt();
+        }
+        int target=scn.nextInt();
+
+        targetSum(arr,0,0,"",target);
+    }
+}
 
 
 
