@@ -87,7 +87,7 @@ public class Revision{
 
 //-----------------------------------------------------------------------------------------------------------
 
- package com.company;
+ /*package com.company;
  import java.util.*;
 
  public class Revision{
@@ -110,7 +110,54 @@ public class Revision{
          int pow=power(x,n);
          System.out.println(pow);
      }
+}*/
+
+ //--------------------------------------------------------------------------------------=-----------------
+
+ // MAZE PATH
+
+ package com.company;
+ import java.util.*;
+
+ public class Revision{
+
+     public static ArrayList<String> mazePath(int row,int col,int drow,int dcol){
+
+         if(row==drow+1 || col==dcol+1){
+             ArrayList<String> base=new ArrayList<>();
+             return base;
+         }
+         if(row==drow && col==dcol){
+             ArrayList<String> base=new ArrayList<>();
+             base.add("");
+             return base;
+         }
+         ArrayList<String> list1=mazePath(row,col+1,drow,dcol);
+         ArrayList<String> list2=mazePath(row+1,col,drow,dcol);
+
+         ArrayList<String> ans=new ArrayList<>();
+         for(int i=0;i<list1.size();i++){
+             ans.add(list1.get(i)+'h');
+         }
+         for(int i=0;i<list2.size();i++){
+             ans.add(list2.get(i)+'v');
+         }
+         return ans;
+     }
+
+     public static void main(String[] args) {
+         Scanner scn=new Scanner(System.in);
+         int m=scn.nextInt();
+         int n= scn.nextInt();
+         int[][] arr=new int[m][n];
+
+         ArrayList<String> mp=mazePath(0,0,m-1,n-1);
+         System.out.println(mp);
+     }
+
 }
+
+
 
 
 
