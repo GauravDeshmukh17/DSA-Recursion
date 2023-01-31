@@ -112,11 +112,11 @@ public class Revision{
      }
 }*/
 
- //--------------------------------------------------------------------------------------=-----------------
+ //-------------------------------------------------------------------------------------------------------
 
  // MAZE PATH
 
- package com.company;
+ /*package com.company;
  import java.util.*;
 
  public class Revision{
@@ -155,9 +155,30 @@ public class Revision{
          System.out.println(mp);
      }
 
+}*/
+
+//----------------------------------------------------------------------------------------------------------
+
+ // PRINT DECREASING NUMBER
+
+ package com.company;
+ import java.util.*;
+
+ public class Revision{
+
+     public static void printDecreasing(int n){
+         if(n==0) return;
+         System.out.println(n);
+         printDecreasing(n-1);
+     }
+
+     public static void main(String[] args) {
+         Scanner scn=new Scanner(System.in);
+         int n=scn.nextInt();
+
+         printDecreasing(n);
+     }
 }
-
-
 
 
 
