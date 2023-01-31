@@ -161,7 +161,7 @@ public class Revision{
 
  // PRINT DECREASING NUMBER
 
- package com.company;
+ /*package com.company;
  import java.util.*;
 
  public class Revision{
@@ -178,7 +178,29 @@ public class Revision{
 
          printDecreasing(n);
      }
-}
+}*/
 
+//----------------------------------------------------------------------------------------------------------
+
+ // PRINT INCREASING
+
+ package com.company;
+ import java.util.*;
+
+ public class Revision{
+
+     public static void printIncreasing(int n){
+         if(n==0) return;
+         printIncreasing(n-1);
+         System.out.println(n);
+     }
+
+     public static void main(String[] args) {
+         Scanner scn=new Scanner(System.in);
+         int n=scn.nextInt();
+
+         printIncreasing(n);
+     }
+ }
 
 
