@@ -207,7 +207,7 @@ public class Revision{
 
 // FACTORIAL
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -225,8 +225,36 @@ public class Revision{
 
         System.out.println(factorial(n));
     }
-}
+}*/
 
+ //-----------------------------------------------------------------------------------------------------
 
+ // DISPLAY ARRAY ELEMENT USING RECURSION
+
+/*package com.company;
+
+ import java.util.*;
+
+ public class Revision{
+
+     public static void displayArrayElements(int[] arr,int idx){
+         if(idx==-1) return;
+         displayArrayElements(arr,idx-1);
+         System.out.print(arr[idx]+" ");
+     }
+
+     public static void main(String[] args) {
+         Scanner scn=new Scanner(System.in);
+         int n=scn.nextInt();
+         int[] arr=new int[n];
+         for(int i=0;i<n;i++){
+             arr[i]=scn.nextInt();
+         }
+
+         displayArrayElements(arr,n-1);
+     }
+}*/
+
+//------------------------------------------------------------------------------------------------------
 
 
