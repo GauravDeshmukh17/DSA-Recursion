@@ -318,7 +318,7 @@ public class Revision{
 
  // FIRST INDEX
 
- package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -341,7 +341,34 @@ public class Revision{
 
         System.out.println(firstIndex(arr,target,0));
     }
-}
+}*/
+
+ //------------------------------------------------------------------------------------------------------
+
+ package com.company;
+
+ import java.util.*;
+
+ public class Revision{
+
+     public static int lastIndex(int[] arr,int target,int idx){
+         if(arr[idx]==target) return idx;
+         int ans=lastIndex(arr,target,idx-1);
+         return ans;
+     }
+
+     public static void main(String[] args) {
+         Scanner scn=new Scanner(System.in);
+         int n=scn.nextInt();
+         int[] arr=new int[n];
+         for(int i=0;i<n;i++){
+             arr[i]=scn.nextInt();
+         }
+         int target=scn.nextInt();
+
+         System.out.println(lastIndex(arr,target,n-1));
+     }
+ }
 
 
 
