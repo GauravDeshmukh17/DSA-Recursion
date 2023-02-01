@@ -259,7 +259,7 @@ public class Revision{
 
 // DISPLAY REVERSE ARRAY USING RECURSION
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -280,6 +280,37 @@ public class Revision{
         }
 
         displayReverseArray(arr,0);
+    }
+}*/
+
+ //-------------------------------------------------------------------------------------------------------
+
+package com.company;
+
+import java.util.*;
+
+public class Revision{
+
+    public static int maximumOfArray(int[] arr,int idx){
+        if(idx==arr.length) return Integer.MIN_VALUE;
+        int max=maximumOfArray(arr,idx+1);
+        if(arr[idx]>max){
+            max=arr[idx];
+        }
+
+        return max;
+    }
+
+    public static void main(String[] args) {
+        Scanner scn=new Scanner(System.in);
+        int n=scn.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=scn.nextInt();
+        }
+
+        int moa=maximumOfArray(arr,0);
+        System.out.println(moa);
     }
 }
 
