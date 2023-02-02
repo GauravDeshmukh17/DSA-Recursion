@@ -345,7 +345,7 @@ public class Revision{
 
  //------------------------------------------------------------------------------------------------------
 
- package com.company;
+ /*package com.company;
 
  import java.util.*;
 
@@ -368,7 +368,52 @@ public class Revision{
 
          System.out.println(lastIndex(arr,target,n-1));
      }
- }
+ }*/
+
+
+ //----------------------------------------------------------------------------------------------------------
+
+// SUBSEQUENCE
+
+package com.company;
+
+import java.util.*;
+
+public class Revision{
+
+    public static ArrayList<String> subSequence(String str){
+        if(str.length()==0){
+            ArrayList<String> base=new ArrayList<>();
+            base.add("");
+            return base;
+        }
+
+        char ch=str.charAt(0);
+        String ros=str.substring(1);
+
+        ArrayList<String> list=subSequence(ros);
+
+        ArrayList<String> ans=new ArrayList<>();
+        // Include
+        for(int i=0;i< list.size();i++){
+            ans.add(ch+list.get(i));
+        }
+        // Exclude
+        for(int i=0;i< list.size();i++){
+            ans.add(list.get(i));
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        Scanner scn=new Scanner(System.in);
+        String str=scn.next();
+
+        ArrayList<String > ss=subSequence(str);
+        System.out.println(ss);
+    }
+}
 
 
 
