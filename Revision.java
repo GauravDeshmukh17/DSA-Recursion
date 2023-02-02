@@ -375,7 +375,7 @@ public class Revision{
 
 // SUBSEQUENCE
 
-package com.company;
+/*package com.company;
 
 import java.util.*;
 
@@ -413,7 +413,34 @@ public class Revision{
         ArrayList<String > ss=subSequence(str);
         System.out.println(ss);
     }
+}*/
+
+//-------------------------------------------------------------------------------------------------------
+
+ package com.company;
+
+ import java.util.*;
+
+public class Revision{
+
+    public static void subSequence(String str,String asf){
+        if(str.length()==0){
+            System.out.print(asf+" ");
+            return;
+        }
+
+        char ch=str.charAt(0);
+        String ros=str.substring(1);
+
+        subSequence(ros,asf);
+        subSequence(ros,asf+ch);
+    }
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        String str=scn.next();
+
+        subSequence(str,"");
+    }
 }
-
-
 
