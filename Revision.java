@@ -417,6 +417,8 @@ public class Revision{
 
 //-------------------------------------------------------------------------------------------------------
 
+ // SUBSEQUENCE (ROTW)
+
 /*package com.company;
 
 import java.util.*;
@@ -448,7 +450,7 @@ public class Revision{
 
 // MAZE PATH
 
- package com.company;
+/* package com.company;
 
  import java.util.*;
 
@@ -489,4 +491,36 @@ public class Revision{
          ArrayList mp=mazePath(0,0,m,n);
          System.out.println(mp);
      }
+}*/
+
+ //--------------------------------------------------------------------------------------------------------
+
+// MAZE PATH (ROTW)
+
+package com.company;
+
+import java.util.Scanner;
+
+public class Revision{
+
+    public static void mazePath(int row,int col,String asf){
+        if(row==0 && col==0){
+            System.out.print(asf+" ");
+            return;
+        }
+        if(row==-1 || col==-1){
+            return;
+        }
+        mazePath(row-1,col,asf+'v');
+        mazePath(row,col-1,asf+'h');
+    }
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        int m=scn.nextInt();
+        int n=scn.nextInt();
+        int[][] arr=new int[m][n];
+
+        mazePath(m-1,n-1,"");
+    }
 }
