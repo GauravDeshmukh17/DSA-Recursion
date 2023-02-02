@@ -417,9 +417,9 @@ public class Revision{
 
 //-------------------------------------------------------------------------------------------------------
 
- package com.company;
+/*package com.company;
 
- import java.util.*;
+import java.util.*;
 
 public class Revision{
 
@@ -442,5 +442,51 @@ public class Revision{
 
         subSequence(str,"");
     }
-}
+}*/
 
+ //-------------------------------------------------------------------------------------------------
+
+// MAZE PATH
+
+ package com.company;
+
+ import java.util.*;
+
+ public class Revision{
+
+     public static ArrayList<String> mazePath(int srow,int scol,int drow,int dcol){
+         if(srow==drow-1 && scol==dcol-1){
+             ArrayList<String> base=new ArrayList<>();
+             base.add("");
+             return base;
+         }
+         if(srow==drow || scol==dcol){
+             ArrayList<String> base=new ArrayList<>();
+             return base;
+         }
+
+         ArrayList<String> list1= mazePath(srow+1,scol,drow,dcol);
+         ArrayList<String> list2=mazePath(srow,scol+1,drow,dcol);
+
+         ArrayList<String> ans=new ArrayList<>();
+         for(int i=0;i< list1.size();i++){
+             ans.add(list1.get(i)+'v');
+         }
+
+         for(int i=0;i< list2.size();i++){
+             ans.add(list2.get(i)+'h');
+         }
+
+         return ans;
+     }
+
+     public static void main(String[] args) {
+         Scanner scn=new Scanner(System.in);
+         int m=scn.nextInt();
+         int n=scn.nextInt();
+         int[][] arr=new int[m][n];
+
+         ArrayList mp=mazePath(0,0,m,n);
+         System.out.println(mp);
+     }
+}
