@@ -529,7 +529,7 @@ public class Revision{
 
 // GET KPC
 
-package com.company;
+/*package com.company;
 
  import java.util.ArrayList;
  import java.util.Scanner;
@@ -562,10 +562,42 @@ package com.company;
     public static void main(String[] args) {
         Scanner scn=new Scanner(System.in);
         String str=scn.next();
-
         String[] arr={".;","abc","def","ghi","jkl","mno","pqrs","tu","vw","xyz"};
 
         ArrayList<String> kpc=getKPC(str,arr);
         System.out.println(kpc);
     }
+}*/
+
+ //-----------------------------------------------------------------------------------------------------
+
+ // GET KPC (ROTW)
+
+ package com.company;
+
+ import java.util.Scanner;
+
+ public class Revision{
+
+     public static void getKPC(String str,String[] arr,String asf){
+         if(str.length()==0){
+             System.out.print(asf+" ");
+             return;
+         }
+
+         char ch=str.charAt(0);
+         String ros=str.substring(1);
+         int idx=Character.getNumericValue(ch);
+         for(int i=0;i<arr[idx].length();i++){
+             getKPC(ros,arr,asf+arr[idx].charAt(i));
+         }
+     }
+
+     public static void main(String[] args) {
+         Scanner scn=new Scanner(System.in);
+         String str=scn.next();
+         String[] arr={".;","abc","def","ghi","jkl","mno","pqrs","tu","vw","xyz"};
+
+         getKPC(str,arr,"");
+     }
 }
