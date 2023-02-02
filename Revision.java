@@ -497,7 +497,7 @@ public class Revision{
 
 // MAZE PATH (ROTW)
 
-package com.company;
+/*package com.company;
 
 import java.util.Scanner;
 
@@ -522,5 +522,50 @@ public class Revision{
         int[][] arr=new int[m][n];
 
         mazePath(m-1,n-1,"");
+    }
+}*/
+
+//---------------------------------------------------------------------------------------------------------
+
+// GET KPC
+
+package com.company;
+
+ import java.util.ArrayList;
+ import java.util.Scanner;
+
+ public class Revision{
+
+     public static ArrayList<String> getKPC(String str,String[] arr){
+         if(str.length()==0){
+             ArrayList<String> base=new ArrayList<>();
+             base.add("");
+             return base;
+         }
+
+         char ch=str.charAt(0);
+         String ros=str.substring(1);
+
+         ArrayList<String> list=getKPC(ros,arr);
+
+         ArrayList<String> ans=new ArrayList<>();
+         int idx=Character.getNumericValue(ch);
+         for(int i=0;i<arr[idx].length();i++){
+             for(int j=0;j<list.size();j++){
+                 ans.add(arr[idx].charAt(i)+list.get(j));
+             }
+         }
+
+         return ans;
+     }
+
+    public static void main(String[] args) {
+        Scanner scn=new Scanner(System.in);
+        String str=scn.next();
+
+        String[] arr={".;","abc","def","ghi","jkl","mno","pqrs","tu","vw","xyz"};
+
+        ArrayList<String> kpc=getKPC(str,arr);
+        System.out.println(kpc);
     }
 }
